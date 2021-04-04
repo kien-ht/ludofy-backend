@@ -4,13 +4,20 @@ const baseURL = "http://localhost:3333";
 
 let playersList = [];
 
+function findRoomOwner() {
+  const foundOwner = playersList.find((p) => p.isRoomOwner);
+  if (!foundOwner) return 1;
+  return playersList.indexOf(foundOwner) + 1;
+}
+
 (async () => {
   const response = await axios({
     url: `${baseURL}/getPlayersList`,
     method: "GET",
   });
   playersList = response.data.data;
-  // console.log(response);
+
+  res.currentPlayer = findRoomOwner();
 })();
 
 // const { _getPlayersList, _getRoomOwner } = require("../temporaryDatabase");
@@ -820,10 +827,10 @@ let isMusicOn = true;
 // results that need to be updated every turn: start
 
 const availableItem = {
-  1: ["slow", "slow", "trap"],
-  2: ["shield", "", "slow"],
-  3: ["trap", "trap", "trap"],
-  4: ["", "shield", "shield"],
+  1: ["slow", "shield", "trap"],
+  2: ["slow", "shield", "trap"],
+  3: ["slow", "shield", "trap"],
+  4: ["slow", "shield", "trap"],
 };
 
 let res = {

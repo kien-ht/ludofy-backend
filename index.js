@@ -61,6 +61,7 @@ io.sockets.on("connection", (socket) => {
   socket.on("joinRoom", (incomingPlayer) => {
     // check if this user is already in
     const hasThisPlayer = _hasThisPlayer(incomingPlayer.userName);
+    // console.log(_getPlayersList());
     if (hasThisPlayer) {
       socket.emit("duplicateConnection");
       socket.disconnect(true);
@@ -74,6 +75,7 @@ io.sockets.on("connection", (socket) => {
     });
 
     _setRoomOwner();
+    console.log(_getPlayersList());
 
     socket.emit("joinRoom", {
       playersList: _getPlayersList(),
