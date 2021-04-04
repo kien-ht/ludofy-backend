@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+@import "./cell.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+}
+
+.home-playername-container {
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: -0.75rem;
+  width: 10vw;
+  z-index: 997;
+  color: #412907;
+  font-family: "Luckiest Guy", cursive;
+}
+
+.playername-sign {
+  position: absolute;
+  width: 100%;
+}
+
+.playername-text {
+  position: relative;
+  text-align: center;
+  font-size: 1.5vw;
+}
+
+#current-playername-container {
+  top: 0%;
+  left: 7%;
+  width: 12vw;
+}
+
+#current-playername-text {
+  color: white;
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+#shield-chest {
+  position: absolute;
+  top: 64%;
+  left: 2%;
+}
+
+#show-item-used {
+  position: absolute;
+  width: 5%;
+  top: 11%;
+  left: 16%;
+  background-color: rgba(248, 76, 104, 0.7);
+  border-radius: 10px;
+  opacity: 0.75;
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.shield-chest {
+  width: 60px;
+  height: 60px;
+}
+
+.show-item-used {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 100%;
+}
+
+.bg-container {
+  position: relative;
+}
+
+.app {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.dice-container {
+  position: absolute;
+  border-radius: 20%;
+  width: 8%;
+  height: 0;
+  padding-bottom: 8%;
+  left: 5%;
+  top: 9%;
+}
+
+/* .dice-container:hover {
+    transform: scale(1.1);
+    transition: 0.15s ease-in-out;
+} */
+
+.dice-image {
+  position: absolute;
+  width: 66%;
+  border-radius: 20%;
+  margin: 17%;
+}
+
+.dice-highlight {
+  background-color: red;
+  filter: blur(15px);
+}
+
+.dice-rolled {
+  opacity: 0.7;
+}
+
+.home-container {
+  position: absolute;
+  width: 7.5%;
+}
+
+.home-image {
+  width: 100%;
+}
+
+.home-scaling {
+  transform-origin: bottom;
+  animation: scaling 1.2s ease-in-out infinite;
+}
+
+.dice-scaling {
+  animation: scaling 1.2s ease-in-out infinite;
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cell-home-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.each-cell-home-container {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  margin-top: 25%;
+}
+
+#home-1 {
+  left: 9%;
+  top: 44%;
+}
+
+#home-2 {
+  left: 83%;
+  top: 57%;
+}
+
+#home-3 {
+  left: 87%;
+  top: 2%;
+}
+
+#home-4 {
+  left: 39%;
+  top: 0%;
+}
+
+.skip-btn {
+  position: absolute;
+  left: 6%;
+  top: 24%;
+  width: 6%;
+  height: 5%;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 2vw;
+  border-width: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-count {
+  position: absolute;
+  left: 6%;
+  top: 27%;
+  width: 6%;
+  height: 2%;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid orange;
+}
+
+.time-countdown {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  border-radius: 10px;
+  animation: countDown 15s linear;
+}
+
+@keyframes countDown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.turn-direction {
+  position: absolute;
+  left: 16%;
+  top: 5%;
+  width: 7%;
+}
+
+.count-container-horse {
+  color: white;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 56%;
+  height: 65%;
+}
+
+.count-horse {
+  border-radius: 5px;
+  padding: 0% 8%;
+  display: none;
+  width: 45%;
+  font-size: 70%;
+}
+
+.slow {
+  background-color: rgb(82, 177, 228);
+}
+
+.shield {
+  background-color: rgb(190, 92, 49);
+}
+
+.itemage-container-horse {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: -150%;
+}
+
+.itemage-horse {
+  width: 50%;
+  display: none;
+  transform: scale(1.2);
+  animation: item-scaling 0.7s ease-in-out infinite;
+}
+
+@keyframes item-scaling {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.all-item-container-area {
+  position: absolute;
+  width: 20%;
+  height: 8%;
+  left: 52%;
+  top: 87%;
+}
+
+.item-area-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.item-container-area {
+  width: 25%;
+  background-color: rgba(255, 192, 203, 0.7);
+  border-radius: 10px;
+  border: 2px solid brown;
+}
+
+.item-container-area:hover,
+.function-btn:hover,
+.skip-btn:hover {
+  transform: scale(1.1);
+}
+
+.itemage-area {
+  width: 100%;
+  max-width: 100%;
+}
+
+.count-area {
+  position: absolute;
+  width: fit-content;
+  padding: 0px 3px;
+  font-size: 20px;
+  background-color: aqua;
+  border-radius: 3px;
+}
+
+.item-run-out {
+  background: grey;
+  opacity: 0.5;
+}
+
+.function-btn-area {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  position: absolute;
+  left: 78%;
+  top: 86%;
+}
+
+.function-btn {
+  width: 30%;
+}
+
+#endGameBoard {
+  position: absolute;
+  background-image: url("../Images/player-board-name.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 39%;
+  height: 68%;
+  left: 33%;
+  top: 12%;
+  padding: 10% 3%;
+  text-align: center;
+
+  display: none;
+}
+
+p {
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 20px;
+}

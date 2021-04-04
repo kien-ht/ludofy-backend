@@ -1,0 +1,470 @@
+.cell-container {
+    position: absolute;
+    width: 3%;
+    height: 3%;
+}
+
+.cell-stand, .cell-horse {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.cell-horse {
+    display: block;
+}
+
+#home-1-1, #home-1-2, #home-2-1, #home-2-2, #home-3-1, #home-3-2, #home-4-1, #home-4-2 {
+    display: block;
+}
+
+.cell-stand:hover, .cell-horse:hover {
+    transform: scale(1.1);
+}
+
+/* path style: start */
+#path-style-01 {
+    left: 18%;
+    top: 61%;
+    z-index: 57;
+}
+
+#path-style-02 {
+    left: 21%;
+    top: 64%;
+    z-index: 58;
+}
+
+#path-style-03 {
+    left: 26%;
+    top: 63%;
+    z-index: 3;
+}
+
+#path-style-04 {
+    left: 30%;
+    top: 66%;
+    z-index: 4;
+}
+
+#path-style-05 {
+    left: 35%;
+    top: 65%;
+    z-index: 5;
+}
+
+#path-style-06 {
+    left: 39%;
+    top: 67%;
+    z-index: 6;
+}
+
+#path-style-07 {
+    left: 44%;
+    top: 67%;
+    z-index: 7;
+}
+
+#path-style-08 {
+    left: 49%;
+    top: 69%;
+    z-index: 8;
+}
+
+#path-style-09 {
+    left: 53%;
+    top: 72%;
+    z-index: 9;
+}
+
+#path-style-10 {
+    left: 57%;
+    top: 75%;
+    z-index: 10;
+}
+
+#path-style-11 {
+    left: 62%;
+    top: 76%;
+    z-index: 11;
+}
+
+#path-style-12 {
+    left: 67%;
+    top: 76%;
+    z-index: 12;
+}
+
+#path-style-13 {
+    left: 72%;
+    top: 76%;
+    z-index: 19;
+}
+
+#path-style-14 {
+    left: 76%;
+    top: 74%;
+    z-index: 18;
+}
+
+#path-style-15 {
+    left: 78%;
+    top: 70%;
+    z-index: 17;
+}
+
+#path-style-16 {
+    left: 79%;
+    top: 65%;
+    z-index: 16;
+}
+
+#path-style-17 {
+    left: 81%;
+    top: 61%;
+    z-index: 15;
+
+}
+
+#path-style-18 {
+    left: 83%;
+    top: 57%;
+    z-index: 14;
+}
+
+#path-style-19 {
+    left: 86%;
+    top: 54%;
+    z-index: 13;
+}
+
+#path-style-20 {
+    left: 86%;
+    top: 49%;
+    z-index: 12;
+}
+
+#path-style-21 {
+    left: 83%;
+    top: 46%;
+    z-index: 11;
+}
+
+#path-style-22 {
+    left: 80%;
+    top: 43%;
+    z-index: 10;
+}
+
+#path-style-23 {
+    left: 81%;
+    top: 39%;
+    z-index: 9;
+}
+
+#path-style-24 {
+    left: 84%;
+    top: 36%;
+    z-index: 8;
+}
+
+#path-style-25 {
+    left: 88%;
+    top: 33%;
+    z-index: 7;
+}
+
+#path-style-26 {
+    left: 87%;
+    top: 28%;
+    z-index: 6;
+}
+
+#path-style-27 {
+    left: 84%;
+    top: 25%;
+    z-index: 5;
+}
+
+#path-style-28 {
+    left: 82%;
+    top: 21%;
+    z-index: 4;
+}
+
+#path-style-29 {
+    left: 82%;
+    top: 17%;
+    z-index: 3;
+}
+
+#path-style-30 {
+    left: 83%;
+    top: 13%;
+    z-index: 2;
+}
+
+#path-style-31 {
+    left: 81%;
+    top: 9%;
+    z-index: 1;
+}
+
+#path-style-32 {
+    left: 77%;
+    top: 10%;
+    z-index: 32;
+}
+
+#path-style-33 {
+    left: 75%;
+    top: 14%;
+    z-index: 33;
+}
+
+#path-style-34 {
+    left: 74%;
+    top: 18%;
+    z-index: 34;
+}
+
+#path-style-35 {
+    left: 71%;
+    top: 21%;
+    z-index: 35;
+}
+
+#path-style-36 {
+    left: 67%;
+    top: 19%;
+    z-index: 4;
+}
+
+#path-style-37 {
+    left: 66%;
+    top: 15%;
+    z-index: 3;
+}
+
+#path-style-38 {
+    left: 64%;
+    top: 11%;
+    z-index: 2;
+}
+
+#path-style-39 {
+    left: 60%;
+    top: 9%;
+    z-index: 1;
+}
+
+#path-style-40 {
+    left: 58%;
+    top: 13%;
+    z-index: 40;
+}
+
+#path-style-41 {
+    left: 56%;
+    top: 17%;
+    z-index: 41;
+}
+
+#path-style-42 {
+    left: 52%;
+    top: 19%;
+    z-index: 42;
+}
+
+#path-style-43 {
+    left: 48%;
+    top: 20%;
+    z-index: 43;
+}
+
+#path-style-44 {
+    left: 44%;
+    top: 21%;
+    z-index: 44;
+}
+
+#path-style-45 {
+    left: 41%;
+    top: 24%;
+    z-index: 45;
+}
+
+#path-style-46 {
+    left: 37%;
+    top: 26%;
+    z-index: 46;
+}
+
+#path-style-47 {
+    left: 33%;
+    top: 26%;
+    z-index: 47;
+}
+
+#path-style-48 {
+    left: 29%;
+    top: 28%;
+    z-index: 48;
+}
+
+#path-style-49 {
+    left: 27%;
+    top: 32%;
+    z-index: 49;
+}
+
+#path-style-50 {
+    left: 25%;
+    top: 36%;
+    z-index: 50;
+}
+
+#path-style-51 {
+    left: 21%;
+    top: 38%;
+    z-index: 51;
+}
+
+#path-style-52 {
+    left: 19%;
+    top: 42%;
+    z-index: 52;
+}
+
+#path-style-53 {
+    left: 22%;
+    top: 45%;
+    z-index: 53;
+}
+
+#path-style-54 {
+    left: 23%;
+    top: 49%;
+    z-index: 54;
+}
+
+#path-style-55 {
+    left: 21%;
+    top: 53%;
+    z-index: 55;
+}
+
+#path-style-56 {
+    left: 19%;
+    top: 57%;
+    z-index: 56;
+}
+/* path style: end */
+
+/* finish style player 1: start */
+#finish-style-1-1 {
+    left: 24%;
+    top: 57%;
+}
+#finish-style-1-2 {
+    left: 29%;
+    top: 56%;
+}
+#finish-style-1-3 {
+    left: 34%;
+    top: 56%;
+}
+#finish-style-1-4 {
+    left: 39%;
+    top: 55%;
+}
+#finish-style-1-5 {
+    left: 44%;
+    top: 56%;
+}
+#finish-style-1-6 {
+    left: 49%;
+    top: 55%;
+}
+/* finish style player 1: end */
+
+/* finish style player 2: start */
+#finish-style-2-1 {
+    left: 72%;
+    top: 71%;
+}
+#finish-style-2-2 {
+    left: 69%;
+    top: 68%;
+}
+#finish-style-2-3 {
+    left: 68%;
+    top: 64%;
+}
+#finish-style-2-4 {
+    left: 65%;
+    top: 60%;
+}
+#finish-style-2-5 {
+    left: 61%;
+    top: 59%;
+}
+#finish-style-2-6 {
+    left: 58%;
+    top: 56%;
+}
+/* finish style player 2: end */
+
+/* finish style player 3: start */
+#finish-style-3-1 {
+    left: 78%;
+    top: 24%;
+}
+#finish-style-3-2 {
+    left: 74%;
+    top: 25%;
+}
+#finish-style-3-3 {
+    left: 69%;
+    top: 26%;
+}
+#finish-style-3-4 {
+    left: 65%;
+    top: 29%;
+}
+#finish-style-3-5 {
+    left: 63%;
+    top: 34%;
+}
+#finish-style-3-6 {
+    left: 64%;
+    top: 38%;
+}
+/* finish style player 3: end */
+
+/* finish style player 4: start */
+#finish-style-4-1 {
+    left: 50%;
+    top: 23%;
+}
+#finish-style-4-2 {
+    left: 46%;
+    top: 25%;
+}
+#finish-style-4-3 {
+    left: 43%;
+    top: 29%;
+}
+#finish-style-4-4 {
+    left: 42%;
+    top: 33%;
+}
+#finish-style-4-5 {
+    left: 44%;
+    top: 37%;
+}
+#finish-style-4-6 {
+    left: 47%;
+    top: 40%;
+}
+/* finish style player 4: end */

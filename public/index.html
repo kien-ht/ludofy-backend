@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cờ Cá Ngựa</title>
+    <link rel="stylesheet" href="./Styles/screen-play-style.css">
+    <link rel="shortcut icon" href="./Images/favico.ico">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" integrity="sha384-DkkWv9oJFWLIydBXXjkBWnG1/fuVhw8YPBq37uvvD6WSYRFRqr21eY5Dg9ZhmWdy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+     
+    <div class="bg-container" id="play-screen">
+        <img src="./Images/screen-play-background.png" class="bg-image">
+    
+        <!-- Path: start -->
+        <div class="cell-container" id="path-style-01">
+            <img src="./Images/stand-start-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="path-01">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-01"></div>
+                <div class="count-horse shield" id="count-shield-horse-01"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-01">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-01">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-02">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-02">
+            <img src="" class="cell-horse" id="path-02">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-02"></div>
+                <div class="count-horse shield" id="count-shield-horse-02"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-02">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-02">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-03">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-03">
+            <img src="" class="cell-horse" id="path-03">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-03"></div>
+                <div class="count-horse shield" id="count-shield-horse-03"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-03">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-03">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-04">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-04">
+            <img src="" class="cell-horse" id="path-04">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-04"></div>
+                <div class="count-horse shield" id="count-shield-horse-04"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-04">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-04">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-05">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-05">
+            <img src="" class="cell-horse" id="path-05">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-05"></div>
+                <div class="count-horse shield" id="count-shield-horse-05"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-05">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-05">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-06">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-06">
+            <img src="" class="cell-horse" id="path-06">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-06"></div>
+                <div class="count-horse shield" id="count-shield-horse-06"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-06">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-06">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-07">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-07">
+            <img src="" class="cell-horse" id="path-07">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-07"></div>
+                <div class="count-horse shield" id="count-shield-horse-07"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-07">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-07">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-08">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-08">
+            <img src="" class="cell-horse" id="path-08">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-08"></div>
+                <div class="count-horse shield" id="count-shield-horse-08"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-08">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-08">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-09">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-09">
+            <img src="" class="cell-horse" id="path-09">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-09"></div>
+                <div class="count-horse shield" id="count-shield-horse-09"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-09">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-09">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-10">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-10">
+            <img src="" class="cell-horse" id="path-10">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-10"></div>
+                <div class="count-horse shield" id="count-shield-horse-10"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-10">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-10">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-11">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-11">
+            <img src="" class="cell-horse" id="path-11">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-11"></div>
+                <div class="count-horse shield" id="count-shield-horse-11"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-11">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-11">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-12">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-12">
+            <img src="" class="cell-horse" id="path-12">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-12"></div>
+                <div class="count-horse shield" id="count-shield-horse-12"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-12">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-12">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-13">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-13">
+            <img src="" class="cell-horse" id="path-13">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-13"></div>
+                <div class="count-horse shield" id="count-shield-horse-13"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-13">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-13">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-14">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-14">
+            <img src="" class="cell-horse" id="path-14">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-14"></div>
+                <div class="count-horse shield" id="count-shield-horse-14"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-14">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-14">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-15">
+            <img src="./Images/stand-start-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="path-15">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-15"></div>
+                <div class="count-horse shield" id="count-shield-horse-15"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-15">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-15">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-16">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-16">
+            <img src="" class="cell-horse" id="path-16">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-16"></div>
+                <div class="count-horse shield" id="count-shield-horse-16"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-16">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-16">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-17">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-17">
+            <img src="" class="cell-horse" id="path-17">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-17"></div>
+                <div class="count-horse shield" id="count-shield-horse-17"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-17">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-17">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-18">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-18">
+            <img src="" class="cell-horse" id="path-18">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-18"></div>
+                <div class="count-horse shield" id="count-shield-horse-18"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-18">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-18">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-19">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-19">
+            <img src="" class="cell-horse" id="path-19">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-19"></div>
+                <div class="count-horse shield" id="count-shield-horse-19"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-19">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-19">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-20">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-20">
+            <img src="" class="cell-horse" id="path-20">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-20"></div>
+                <div class="count-horse shield" id="count-shield-horse-20"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-20">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-20">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-21">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-21">
+            <img src="" class="cell-horse" id="path-21">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-21"></div>
+                <div class="count-horse shield" id="count-shield-horse-21"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-21">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-21">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-22">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-22">
+            <img src="" class="cell-horse" id="path-22">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-22"></div>
+                <div class="count-horse shield" id="count-shield-horse-22"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-22">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-22">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-23">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-23">
+            <img src="" class="cell-horse" id="path-23">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-23"></div>
+                <div class="count-horse shield" id="count-shield-horse-23"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-23">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-23">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-24">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-24">
+            <img src="" class="cell-horse" id="path-24">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-24"></div>
+                <div class="count-horse shield" id="count-shield-horse-24"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-24">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-24">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-25">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-25">
+            <img src="" class="cell-horse" id="path-25">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-25"></div>
+                <div class="count-horse shield" id="count-shield-horse-25"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-25">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-25">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-26">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-26">
+            <img src="" class="cell-horse" id="path-26">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-26"></div>
+                <div class="count-horse shield" id="count-shield-horse-26"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-26">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-26">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-27">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-27">
+            <img src="" class="cell-horse" id="path-27">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-27"></div>
+                <div class="count-horse shield" id="count-shield-horse-27"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-27">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-27">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-28">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-28">
+            <img src="" class="cell-horse" id="path-28">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-28"></div>
+                <div class="count-horse shield" id="count-shield-horse-28"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-28">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-28">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-29">
+            <img src="./Images/stand-start-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="path-29">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-29"></div>
+                <div class="count-horse shield" id="count-shield-horse-29"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-29">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-29">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-30">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-30">
+            <img src="" class="cell-horse" id="path-30">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-30"></div>
+                <div class="count-horse shield" id="count-shield-horse-30"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-30">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-30">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-31">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-31">
+            <img src="" class="cell-horse" id="path-31">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-31"></div>
+                <div class="count-horse shield" id="count-shield-horse-31"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-31">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-31">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-32">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-32">
+            <img src="" class="cell-horse" id="path-32">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-32"></div>
+                <div class="count-horse shield" id="count-shield-horse-32"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-32">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-32">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-33">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-33">
+            <img src="" class="cell-horse" id="path-33">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-33"></div>
+                <div class="count-horse shield" id="count-shield-horse-33"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-33">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-33">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-34">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-34">
+            <img src="" class="cell-horse" id="path-34">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-34"></div>
+                <div class="count-horse shield" id="count-shield-horse-34"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-34">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-34">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-35">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-35">
+            <img src="" class="cell-horse" id="path-35">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-35"></div>
+                <div class="count-horse shield" id="count-shield-horse-35"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-35">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-35">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-36">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-36">
+            <img src="" class="cell-horse" id="path-36">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-36"></div>
+                <div class="count-horse shield" id="count-shield-horse-36"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-36">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-36">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-37">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-37">
+            <img src="" class="cell-horse" id="path-37">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-37"></div>
+                <div class="count-horse shield" id="count-shield-horse-37"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-37">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-37">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-38">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-38">
+            <img src="" class="cell-horse" id="path-38">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-38"></div>
+                <div class="count-horse shield" id="count-shield-horse-38"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-38">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-38">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-39">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-39">
+            <img src="" class="cell-horse" id="path-39">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-39"></div>
+                <div class="count-horse shield" id="count-shield-horse-39"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-39">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-39">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-40">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-40">
+            <img src="" class="cell-horse" id="path-40">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-40"></div>
+                <div class="count-horse shield" id="count-shield-horse-40"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-40">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-40">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-41">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-41">
+            <img src="" class="cell-horse" id="path-41">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-41"></div>
+                <div class="count-horse shield" id="count-shield-horse-41"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-41">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-41">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-42">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-42">
+            <img src="" class="cell-horse" id="path-42">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-42"></div>
+                <div class="count-horse shield" id="count-shield-horse-42"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-42">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-42">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-43">
+            <img src="./Images/stand-start-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="path-43">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-43"></div>
+                <div class="count-horse shield" id="count-shield-horse-43"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-43">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-43">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-44">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-44">
+            <img src="" class="cell-horse" id="path-44">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-44"></div>
+                <div class="count-horse shield" id="count-shield-horse-44"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-44">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-44">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-45">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-45">
+            <img src="" class="cell-horse" id="path-45">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-45"></div>
+                <div class="count-horse shield" id="count-shield-horse-45"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-45">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-45">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-46">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-46">
+            <img src="" class="cell-horse" id="path-46">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-46"></div>
+                <div class="count-horse shield" id="count-shield-horse-46"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-46">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-46">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-47">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-47">
+            <img src="" class="cell-horse" id="path-47">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-47"></div>
+                <div class="count-horse shield" id="count-shield-horse-47"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-47">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-47">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-48">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-48">
+            <img src="" class="cell-horse" id="path-48">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-48"></div>
+                <div class="count-horse shield" id="count-shield-horse-48"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-48">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-48">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-49">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-49">
+            <img src="" class="cell-horse" id="path-49">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-49"></div>
+                <div class="count-horse shield" id="count-shield-horse-49"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-49">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-49">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-50">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-50">
+            <img src="" class="cell-horse" id="path-50">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-50"></div>
+                <div class="count-horse shield" id="count-shield-horse-50"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-50">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-50">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-51">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-51">
+            <img src="" class="cell-horse" id="path-51">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-51"></div>
+                <div class="count-horse shield" id="count-shield-horse-51"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-51">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-51">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-52">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-52">
+            <img src="" class="cell-horse" id="path-52">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-52"></div>
+                <div class="count-horse shield" id="count-shield-horse-52"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-52">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-52">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-53">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-53">
+            <img src="" class="cell-horse" id="path-53">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-53"></div>
+                <div class="count-horse shield" id="count-shield-horse-53"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-53">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-53">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-54">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-54">
+            <img src="" class="cell-horse" id="path-54">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-54"></div>
+                <div class="count-horse shield" id="count-shield-horse-54"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-54">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-54">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-55">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-55">
+            <img src="" class="cell-horse" id="path-55">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-55"></div>
+                <div class="count-horse shield" id="count-shield-horse-55"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-55">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-55">
+            </div>
+        </div>
+        <div class="cell-container" id="path-style-56">
+            <img src="./Images/stand-path-all.png" class="cell-stand" id="cell-stand-56">
+            <img src="" class="cell-horse" id="path-56">
+            <div class="count-container-horse">
+                <div class="count-horse slow" id="count-slow-horse-56"></div>
+                <div class="count-horse shield" id="count-shield-horse-56"></div>
+            </div>
+            <div class="itemage-container-horse">
+                <img src="./Images/item-slow-used.png" class="itemage-horse" id="itemage-slow-horse-56">
+                <img src="./Images/item-shield-used.png" class="itemage-horse" id="itemage-shield-horse-56">
+            </div>
+        </div>
+        <!-- Path: end -->
+    
+        <!-- Finish: start -->
+            <!-- finish player 1: start -->
+        <div class="cell-container" id="finish-style-1-1">
+            <img src="./Images/stand-path-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-101">
+        </div>
+        <div class="cell-container" id="finish-style-1-2">
+            <img src="./Images/stand-path-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-102">
+        </div>
+        <div class="cell-container" id="finish-style-1-3">
+            <img src="./Images/stand-path-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-103">
+        </div>
+        <div class="cell-container" id="finish-style-1-4">
+            <img src="./Images/stand-path-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-104">
+        </div>
+        <div class="cell-container" id="finish-style-1-5">
+            <img src="./Images/stand-path-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-105">
+        </div>
+        <div class="cell-container" id="finish-style-1-6">
+            <img src="./Images/stand-path-1.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-106">
+        </div>
+            <!-- finish player 1: end -->
+    
+            <!-- finish player 2: start -->
+        <div class="cell-container" id="finish-style-2-1">
+            <img src="./Images/stand-path-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-201">
+        </div>
+        <div class="cell-container" id="finish-style-2-2">
+            <img src="./Images/stand-path-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-202">
+        </div>
+        <div class="cell-container" id="finish-style-2-3">
+            <img src="./Images/stand-path-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-203">
+        </div>
+        <div class="cell-container" id="finish-style-2-4">
+            <img src="./Images/stand-path-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-204">
+        </div>
+        <div class="cell-container" id="finish-style-2-5">
+            <img src="./Images/stand-path-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-205">
+        </div>
+        <div class="cell-container" id="finish-style-2-6">
+            <img src="./Images/stand-path-2.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-206">
+        </div>
+            <!-- finish player 2: end -->
+    
+            <!-- finish player 3: start -->
+        <div class="cell-container" id="finish-style-3-1">
+            <img src="./Images/stand-path-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-301">
+        </div>
+        <div class="cell-container" id="finish-style-3-2">
+            <img src="./Images/stand-path-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-302">
+        </div>
+        <div class="cell-container" id="finish-style-3-3">
+            <img src="./Images/stand-path-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-303">
+        </div>
+        <div class="cell-container" id="finish-style-3-4">
+            <img src="./Images/stand-path-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-304">
+        </div>
+        <div class="cell-container" id="finish-style-3-5">
+            <img src="./Images/stand-path-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-305">
+        </div>
+        <div class="cell-container" id="finish-style-3-6">
+            <img src="./Images/stand-path-3.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-306">
+        </div>
+            <!-- finish player 3: end -->
+    
+            <!-- finish player 4: start -->
+        <div class="cell-container" id="finish-style-4-1">
+            <img src="./Images/stand-path-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-401">
+        </div>
+        <div class="cell-container" id="finish-style-4-2">
+            <img src="./Images/stand-path-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-402">
+        </div>
+        <div class="cell-container" id="finish-style-4-3">
+            <img src="./Images/stand-path-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-403">
+        </div>
+        <div class="cell-container" id="finish-style-4-4">
+            <img src="./Images/stand-path-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-404">
+        </div>
+        <div class="cell-container" id="finish-style-4-5">
+            <img src="./Images/stand-path-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-405">
+        </div>
+        <div class="cell-container" id="finish-style-4-6">
+            <img src="./Images/stand-path-4.png" class="cell-stand">
+            <img src="" class="cell-horse" id="finish-406">
+        </div>
+            <!-- finish player 4: end -->
+        <!-- Finish: end -->
+    
+        <!-- Dice: start -->
+        <div class="dice-container dice-highlight"></div>
+        <div class="dice-container">
+            <img src="./Images/dice-1.png" class="dice-image dice-scaling">
+        </div>
+        <div class="skip-btn">Skip</div>
+        <!-- <div class="time-count">
+            <div class="time-countdown" id="timer"></div>
+        </div> -->
+        <!-- Dice: end -->
+
+        <!-- Current player name: start -->
+        <div class="home-playername-container" id="current-playername-container">
+            <img class="playername-sign" src="./Images/current-playername.png">
+            <p class="playername-text" id="current-playername-text">Hello</p>
+        </div>
+        <!-- Current player name: end -->
+
+        <!-- show which item is being used: start -->
+        <div id="show-item-used">
+            <img class="show-item-used" src="./Images/item-shield.png">
+        </div>
+        <!-- show which item is being used: end -->
+        
+        <!-- Home-player: start -->
+        <div class="home-container" id="home-1">
+            <div class="home-playername-container home-scaling" id="playername-container-1">
+                <img class="playername-sign" src="./Images/home-playername.png">
+                <p class="playername-text" id="playername-text-1">Hello</p>
+            </div>
+            <img src="./Images/home-player-1.png" class="home-image home-scaling" id="home-img-1">
+            <div class="cell-home-container">
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-1.png" class="cell-stand">
+                    <img src="./Images/horse-player-1.png" class="cell-horse" id="home-1-1">
+                </div>
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-1.png" class="cell-stand">
+                    <img src="./Images/horse-player-1.png" class="cell-horse" id="home-1-2">
+                </div>
+            </div>
+        </div>
+    
+        <div class="home-container" id="home-2">
+            <div class="home-playername-container" id="playername-container-2">
+                <img class="playername-sign" src="./Images/home-playername.png">
+                <p class="playername-text" id="playername-text-2">Hello</p>
+            </div>
+            <img src="./Images/home-player-2.png" class="home-image" id="home-img-2">
+            <div class="cell-home-container">
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-2.png" class="cell-stand">
+                    <img src="./Images/horse-player-2.png" class="cell-horse" id="home-2-1">
+                </div>
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-2.png" class="cell-stand">
+                    <img src="./Images/horse-player-2.png" class="cell-horse" id="home-2-2">
+                </div>
+            </div>
+        </div>
+    
+        <div class="home-container" id="home-3">
+            <div class="home-playername-container" id="playername-container-3">
+                <img class="playername-sign" src="./Images/home-playername.png">
+                <p class="playername-text" id="playername-text-3">Hello</p>
+            </div>
+            <img src="./Images/home-player-3.png" class="home-image" id="home-img-3">
+            <div class="cell-home-container">
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-3.png" class="cell-stand">
+                    <img src="./Images/horse-player-3.png" class="cell-horse" id="home-3-1">
+                </div>
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-3.png" class="cell-stand">
+                    <img src="./Images/horse-player-3.png" class="cell-horse" id="home-3-2">
+                </div>
+            </div>
+        </div>
+    
+        <div class="home-container" id="home-4">
+            <div class="home-playername-container" id="playername-container-4">
+                <img class="playername-sign" src="./Images/home-playername.png">
+                <p class="playername-text" id="playername-text-4">Hello</p>
+            </div>
+            <img src="./Images/home-player-4.png" class="home-image" id="home-img-4">
+            <div class="cell-home-container">
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-4.png" class="cell-stand">
+                    <img src="./Images/horse-player-4.png" class="cell-horse" id="home-4-1">
+                </div>
+                <div class="each-cell-home-container">
+                    <img src="./Images/stand-start-4.png" class="cell-stand">
+                    <img src="./Images/horse-player-4.png" class="cell-horse" id="home-4-2">
+                </div>
+            </div>
+        </div>
+        <!-- Home-player: end -->
+    
+        <!-- item-area: start -->
+        <div class="all-item-container-area">
+            <div class="item-area-row">
+                <div class="item-container-area" id="item-0-container">
+                    <img src="./Images/item-slow.png" class="itemage-area item-0" id="itemage-0-area">
+                </div>
+                <div class="item-container-area" id="item-1-container">
+                    <img src="./Images/item-shield.png" class="itemage-area item-1" id="itemage-1-area">
+                </div>
+                <div class="item-container-area" id="item-2-container">
+                    <img src="./Images/item-trap.png" class="itemage-area item-2" id="itemage-2-area">
+                </div>
+            </div>
+        </div>
+        <!-- item-area: end -->
+
+        <!-- function-btn: start -->
+        <div class="function-btn-area">
+            <img src="./Images/btn-sound-on.png" class="function-btn btn-sound">
+            <img src="./Images/btn-music-on.png" class="function-btn btn-music">
+            <img src="./Images/btn-back-to-login.png" class="function-btn backToLogin">
+        </div>
+        <!-- function-btn: end -->
+
+        <div id="endGameBoard"></div>
+
+        <!-- <div id="shield-chest">
+            <img class="shield-chest" src="./Images/shield-chest.png">
+        </div> -->
+
+
+    </div>
+
+
+</body>
+
+<audio src="./Audio/click.mp3" id="click-sound"></audio>
+<audio src="./Audio/horse-kick.mp3" id="horse-kick-sound"></audio>
+<audio src="./Audio/next-player.mp3" id="next-player-sound"></audio>
+<audio src="./Audio/horse-kick-false.mp3" id="horse-kick-false-sound"></audio>
+
+<audio src="./Audio/cash-generate.mp3" id="cash-generate-sound"></audio>
+<audio src="./Audio/horse-moving.mp3" id="horse-moving-sound"></audio>
+<audio src="./Audio/horse-start.mp3" id="horse-start-sound"></audio>
+<audio src="./Audio/item-click.mp3" id="item-click-sound"></audio>
+<audio src="./Audio/player-finish.mp3" id="player-finish-sound"></audio>
+<audio src="./Audio/pop-up-notification.mp3" id="pop-up-notification-sound"></audio>
+<audio src="./Audio/background-music.mp3" id="background-music"></audio>
+
+<script src="index.js"></script>
+
+</html>
